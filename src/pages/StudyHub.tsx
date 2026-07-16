@@ -49,11 +49,12 @@ export default function StudyHub() {
     <div className="min-h-screen bg-panel-950">
       <TopBar />
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-        <div className="mb-10 text-center">
-          <h1 className="font-display text-2xl font-semibold uppercase tracking-[0.2em] text-white sm:text-3xl">
+        <div className="mb-12 text-center">
+          <h1 className="font-display text-2xl font-semibold uppercase tracking-[0.25em] text-white sm:text-3xl">
             Study Hub
           </h1>
-          <p className="mt-2 text-silver-400">Four ways to get ready for the FAA written test.</p>
+          <div className="mx-auto mt-3 mb-3 h-px w-12 bg-silver-500/40" />
+          <p className="text-silver-400">Four ways to get ready for the FAA written test.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -61,18 +62,18 @@ export default function StudyHub() {
             <Link
               key={card.to}
               to={card.to}
-              className="group relative overflow-hidden rounded-2xl border border-panel-700 bg-panel-900 transition-transform hover:-translate-y-0.5 hover:border-accent-500/50"
+              className="group relative overflow-hidden rounded-2xl border border-panel-700 bg-panel-900 transition-all hover:-translate-y-0.5 hover:border-silver-400/50"
             >
               <div className="relative h-44 w-full overflow-hidden">
                 <img
                   src={card.image}
                   alt={card.alt}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover grayscale-[35%] transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-panel-900 via-panel-900/20 to-transparent" />
               </div>
               <div className="p-5">
-                <h2 className="font-display text-lg font-semibold uppercase tracking-wide text-white">
+                <h2 className="font-display text-lg font-semibold uppercase tracking-[0.1em] text-white">
                   {card.title}
                 </h2>
                 <p className="mt-1.5 text-sm leading-relaxed text-silver-400">{card.description}</p>

@@ -76,7 +76,7 @@ export default function QuizRunner() {
         <main className="mx-auto max-w-xl px-4 py-16 text-center text-silver-400">
           No questions available for that category yet.
           <div className="mt-6">
-            <Link to="/quiz" className="text-accent-400 underline">
+            <Link to="/quiz" className="text-silver-300 underline">
               Back to setup
             </Link>
           </div>
@@ -101,19 +101,19 @@ export default function QuizRunner() {
             <button
               type="button"
               onClick={() => navigate("/quiz/run", { state: { category }, replace: true })}
-              className="rounded-xl bg-accent-500 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+              className="rounded-sm bg-silver-200 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
             >
               Retake
             </button>
             <Link
               to="/quiz"
-              className="rounded-xl border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-silver-200 hover:border-panel-400"
+              className="rounded-sm border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-400"
             >
               Change Category
             </Link>
             <Link
               to="/hub"
-              className="rounded-xl border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-silver-200 hover:border-panel-400"
+              className="rounded-sm border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-400"
             >
               Back to Hub
             </Link>
@@ -144,7 +144,7 @@ export default function QuizRunner() {
           <button
             type="button"
             onClick={handleNext}
-            className="mt-6 w-full rounded-xl bg-accent-500 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+            className="mt-6 w-full rounded-sm bg-silver-200 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
           >
             {isLast ? "See Results" : "Next Question"}
           </button>

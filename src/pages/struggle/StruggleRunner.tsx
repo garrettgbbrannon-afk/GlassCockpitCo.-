@@ -45,7 +45,7 @@ export default function StruggleRunner() {
           </p>
           <Link
             to="/quiz"
-            className="mt-8 inline-block rounded-xl bg-accent-500 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+            className="mt-8 inline-block rounded-sm bg-silver-200 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
           >
             Take a Quick Quiz
           </Link>
@@ -106,13 +106,13 @@ export default function StruggleRunner() {
             <button
               type="button"
               onClick={() => navigate("/struggle", { replace: true })}
-              className="rounded-xl bg-accent-500 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+              className="rounded-sm bg-silver-200 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
             >
               Retake
             </button>
             <Link
               to="/hub"
-              className="rounded-xl border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-silver-200 hover:border-panel-400"
+              className="rounded-sm border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-400"
             >
               Back to Hub
             </Link>

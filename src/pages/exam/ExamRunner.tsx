@@ -162,7 +162,7 @@ export default function ExamRunner() {
             <button
               type="button"
               onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
-              className="rounded-xl bg-accent-500 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+              className="rounded-sm bg-silver-200 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
             >
               Next
             </button>
@@ -185,7 +185,7 @@ export default function ExamRunner() {
                   onClick={() => setIndex(i)}
                   className={`relative aspect-square rounded-lg border font-mono text-xs transition-colors ${
                     isCurrent
-                      ? "border-accent-400 bg-accent-500/20 text-white"
+                      ? "border-silver-300 bg-silver-300/20 text-white"
                       : isAnswered
                         ? "border-panel-600 bg-panel-700/60 text-silver-200"
                         : "border-panel-700 bg-panel-900/40 text-silver-500"

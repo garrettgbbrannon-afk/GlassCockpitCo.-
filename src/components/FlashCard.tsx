@@ -34,14 +34,14 @@ export default function FlashCard({ question, flipped, onFlip }: FlashCardProps)
 
         {/* Back: answer + explanation */}
         <div
-          className="absolute inset-0 flex flex-col justify-center gap-3 rounded-2xl border border-accent-500/40 bg-panel-900/90 p-6 text-left [backface-visibility:hidden] sm:p-8"
+          className="absolute inset-0 flex flex-col justify-center gap-3 rounded-2xl border border-silver-400/40 bg-panel-900/90 p-6 text-left [backface-visibility:hidden] sm:p-8"
           style={{ transform: "rotateY(180deg)" }}
         >
           <div className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-hud-green">
             Answer
           </div>
           <p className="text-lg font-medium text-white">{question.choices[question.correct]}</p>
-          <div className="mt-2 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div className="mt-2 font-display text-xs font-semibold uppercase tracking-[0.2em] text-silver-300">
             Explanation
           </div>
           <p className="text-sm leading-relaxed text-silver-300">{question.explanation}</p>

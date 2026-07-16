@@ -12,18 +12,17 @@
   --color-panel-600: #223245;
   --color-panel-500: #33475e;
 
-  --color-hud-cyan: #4fd9e8;
-  --color-hud-amber: #f5a623;
-  --color-hud-green: #6bdc7c;
-  --color-hud-red: #ef5b5b;
+  --color-hud-amber: #d9a44d;
+  --color-hud-green: #5ec282;
+  --color-hud-red: #dd6464;
 
-  --color-accent-50: #eef2ff;
-  --color-accent-400: #7c93ff;
-  --color-accent-500: #5468ff;
-  --color-accent-600: #3f4feb;
+  /* Platinum/silver scale — the brand accent, matched to the GC mark's tone */
+  --color-silver-100: #f3f5f7;
+  --color-silver-200: #e2e6eb;
   --color-silver-300: #c7ced9;
   --color-silver-400: #9aa5b5;
   --color-silver-500: #79879b;
+  --color-silver-600: #57626f;
 }
 
 html,
@@ -41,7 +40,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-hud-cyan);
+  background: var(--color-silver-300);
   color: #05070a;
 }
 
@@ -55,7 +54,7 @@ body {
 
 .hud-grid {
   background-image:
-    linear-gradient(rgba(79, 217, 232, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79, 217, 232, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(199, 206, 217, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(199, 206, 217, 0.05) 1px, transparent 1px);
   background-size: 34px 34px;
 }

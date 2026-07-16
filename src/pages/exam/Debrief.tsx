@@ -106,20 +106,20 @@ export default function Debrief() {
           <button
             type="button"
             onClick={() => navigate("/struggle")}
-            className="rounded-xl bg-hud-amber px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-panel-950 hover:brightness-110"
+            className="rounded-sm bg-hud-amber px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:brightness-110"
           >
             Practice Weak Areas
           </button>
           <button
             type="button"
             onClick={() => navigate("/exam/run", { state: { timed: state.timed }, replace: true })}
-            className="rounded-xl bg-accent-500 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600"
+            className="rounded-sm bg-silver-200 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100"
           >
             Retake Exam
           </button>
           <Link
             to="/hub"
-            className="rounded-xl border border-panel-600 px-6 py-3 text-center font-display text-sm font-semibold uppercase tracking-[0.15em] text-silver-200 hover:border-panel-400"
+            className="rounded-sm border border-panel-600 px-6 py-3 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-400"
           >
             Back to Hub
           </Link>

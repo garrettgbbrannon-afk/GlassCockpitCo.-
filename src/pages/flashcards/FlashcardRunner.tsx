@@ -28,7 +28,7 @@ export default function FlashcardRunner() {
         <main className="mx-auto max-w-xl px-4 py-16 text-center text-silver-400">
           No cards available for this deck yet.
           <div className="mt-6">
-            <Link to="/flashcards" className="text-accent-400 underline">
+            <Link to="/flashcards" className="text-silver-300 underline">
               Choose a different deck
             </Link>
           </div>
@@ -69,7 +69,7 @@ export default function FlashcardRunner() {
           <button
             type="button"
             onClick={() => setFlipped((f) => !f)}
-            className="rounded-xl border border-accent-500/50 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-accent-400 hover:bg-accent-500/10"
+            className="rounded-sm border border-silver-400/50 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-300 hover:bg-silver-300/10"
           >
             Flip
           </button>
@@ -77,7 +77,7 @@ export default function FlashcardRunner() {
             type="button"
             onClick={() => goTo(index + 1)}
             disabled={index === cards.length - 1}
-            className="rounded-xl bg-accent-500 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.15em] text-white hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-30"
+            className="rounded-sm bg-silver-200 px-5 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 hover:bg-silver-100 disabled:cursor-not-allowed disabled:opacity-30"
           >
             Next
           </button>

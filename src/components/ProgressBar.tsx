@@ -4,7 +4,7 @@ interface ProgressBarProps {
   color?: string;
 }
 
-export default function ProgressBar({ current, total, color = "var(--color-accent-500)" }: ProgressBarProps) {
+export default function ProgressBar({ current, total, color = "var(--color-silver-300)" }: ProgressBarProps) {
   const pct = total > 0 ? Math.min(100, Math.round((current / total) * 100)) : 0;
   return (
     <div className="w-full">

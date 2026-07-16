@@ -64,7 +64,7 @@ export default function QuestionCard({
           const isCorrect = index === question.correct;
 
           let stateClasses =
-            "border-panel-600 bg-panel-800/60 text-silver-200 hover:border-accent-500/60 hover:bg-panel-800";
+            "border-panel-600 bg-panel-800/60 text-silver-200 hover:border-silver-400/60 hover:bg-panel-800";
           if (revealed) {
             if (isCorrect) {
               stateClasses = "border-hud-green/60 bg-hud-green/10 text-white";
@@ -74,7 +74,7 @@ export default function QuestionCard({
               stateClasses = "border-panel-700 bg-panel-800/30 text-silver-500";
             }
           } else if (isSelected) {
-            stateClasses = "border-accent-500 bg-accent-500/10 text-white";
+            stateClasses = "border-silver-300 bg-silver-300/10 text-white";
           }
 
           return (
@@ -97,7 +97,7 @@ export default function QuestionCard({
 
       {revealed && (
         <div className="mt-5 rounded-xl border border-panel-700 bg-panel-800/40 p-4">
-          <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-silver-300">
             Explanation
           </div>
           <p className="text-sm leading-relaxed text-silver-300">{question.explanation}</p>

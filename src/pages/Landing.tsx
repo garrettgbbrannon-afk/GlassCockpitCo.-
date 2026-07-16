@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import bonanzaRunway from "../assets/photos/bonanza-runway.webp";
+import taildraggerDawn from "../assets/photos/taildragger-dawn.webp";
 import Logo from "../components/Logo";
 
 export default function Landing() {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-panel-950">
       <img
-        src={bonanzaRunway}
-        alt="Beechcraft Bonanza facing down the runway at dusk with mountains behind"
+        src={taildraggerDawn}
+        alt="Taildragger silhouetted on the taxiway at dawn"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/90 via-panel-950/50 to-panel-950/95" />
-      <div className="absolute inset-0 hud-grid opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/75 via-panel-950/20 to-panel-950/90" />
+      <div className="absolute inset-0 hud-grid opacity-10" />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-20 text-center">
         <div
@@ -27,14 +27,14 @@ export default function Landing() {
       <div className="relative z-10 mb-16 flex w-full max-w-md flex-col gap-3 px-6 sm:flex-row sm:max-w-xl">
         <Link
           to="/hub"
-          className="flex-1 rounded-xl bg-accent-500 px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.15em] text-white shadow-lg shadow-accent-600/30 transition-colors hover:bg-accent-600"
+          className="flex-1 rounded-sm bg-silver-200 px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-panel-950 transition-colors hover:bg-silver-100"
         >
           Begin Training
         </Link>
         <Link
           to="/quiz/run"
           state={{ category: "all" }}
-          className="flex-1 rounded-xl border border-silver-500/40 bg-panel-900/60 px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.15em] text-silver-200 backdrop-blur transition-colors hover:border-silver-400 hover:text-white"
+          className="flex-1 rounded-sm border border-silver-500/40 bg-panel-900/60 px-6 py-4 text-center font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 backdrop-blur transition-colors hover:border-silver-300 hover:text-white"
         >
           Quick Quiz
         </Link>
