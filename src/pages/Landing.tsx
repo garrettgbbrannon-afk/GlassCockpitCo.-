@@ -14,6 +14,13 @@ export default function Landing() {
       <div className="absolute inset-0 hud-grid opacity-20" />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-20 text-center">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse 480px 320px at center, rgba(5,7,10,0.6) 0%, rgba(5,7,10,0) 70%)",
+          }}
+        />
         <Logo size="lg" showTagline />
       </div>
 
