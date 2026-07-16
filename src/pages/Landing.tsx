@@ -10,17 +10,10 @@ export default function Landing() {
         alt="Taildragger silhouetted on the taxiway at dawn"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/75 via-panel-950/20 to-panel-950/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/80 via-panel-950/15 to-panel-950/90" />
       <div className="absolute inset-0 hud-grid opacity-10" />
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 py-20 text-center">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse 480px 320px at center, rgba(5,7,10,0.6) 0%, rgba(5,7,10,0) 70%)",
-          }}
-        />
+      <div className="relative z-10 flex flex-col items-center px-6 pt-14 text-center sm:pt-20">
         <Logo size="lg" showTagline />
       </div>
 
