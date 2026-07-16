@@ -16,6 +16,8 @@ export interface AnsweredRecord {
   timestamp: number;
 }
 
+export type DeckId = CategoryId | "all" | "weak";
+
 export interface QuizAttempt {
   id: string;
   mode: "exam" | "quiz" | "struggle";

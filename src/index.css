@@ -16,6 +16,14 @@
   --color-hud-amber: #f5a623;
   --color-hud-green: #6bdc7c;
   --color-hud-red: #ef5b5b;
+
+  --color-accent-50: #eef2ff;
+  --color-accent-400: #7c93ff;
+  --color-accent-500: #5468ff;
+  --color-accent-600: #3f4feb;
+  --color-silver-300: #c7ced9;
+  --color-silver-400: #9aa5b5;
+  --color-silver-500: #79879b;
 }
 
 html,
