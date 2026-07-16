@@ -1,4 +1,4 @@
-import gcMark from "../assets/photos/gc-mark.png";
+import gcMark from "../assets/photos/gc-mark.webp";
 
 interface LogoProps {
   size?: "sm" | "lg";

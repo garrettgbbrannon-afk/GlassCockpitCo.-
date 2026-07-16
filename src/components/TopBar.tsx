@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import gcMark from "../assets/photos/gc-mark.png";
+import gcMark from "../assets/photos/gc-mark.webp";
 
 interface TopBarProps {
   title?: string;
