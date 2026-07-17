@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import TopBar from "../components/TopBar";
 import cirrusFormation from "../assets/photos/cirrus-formation.webp";
 import twin from "../assets/photos/twin.webp";
-import biplane from "../assets/photos/biplane.webp";
+import cessnaSunset from "../assets/photos/cessna-sunset.webp";
 import bonanzaDetail from "../assets/photos/bonanza-detail.webp";
 
 interface HubCard {
@@ -32,8 +32,8 @@ const CARDS: HubCard[] = [
     title: "Flashcards",
     description: "A categorized deck for concept review — flip through at your own pace.",
     to: "/flashcards",
-    image: biplane,
-    alt: "Vintage biplane flying over green hills",
+    image: cessnaSunset,
+    alt: "Cessna facing down the runway at sunset",
   },
   {
     title: "Struggle Set",

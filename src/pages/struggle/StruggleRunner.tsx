@@ -5,13 +5,30 @@ import ProgressBar from "../../components/ProgressBar";
 import QuestionCard from "../../components/QuestionCard";
 import { buildStruggleSet } from "../../lib/quizEngine";
 import { hasEnoughDataForStruggleSet, recordAnswer, recordAttempt } from "../../lib/storage";
-import cub from "../../assets/photos/cub.webp";
+import cubRidge from "../../assets/photos/cub-ridge.webp";
 
 function commentaryFor(pct: number): string {
   if (pct >= 90) return "Whatever was tripping you up before, it isn't anymore.";
   if (pct >= 70) return "Solid improvement on your weak spots. Keep this up.";
   if (pct >= 50) return "Progress, but these categories still need attention.";
   return "These are still your soft spots — worth a flashcard session before your next attempt.";
+}
+
+function Backdrop({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden bg-panel-950">
+      <img
+        src={cubRidge}
+        alt="Cub aircraft flying low over golden ridgelines at sunset"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-panel-950/78" />
+      <div className="relative z-10">
+        <TopBar title={title} />
+        {children}
+      </div>
+    </div>
+  );
 }
 
 export default function StruggleRunner() {
@@ -32,14 +49,12 @@ export default function StruggleRunner() {
 
   if (!eligible) {
     return (
-      <div className="min-h-screen bg-panel-950">
-        <TopBar title="Struggle Set" />
+      <Backdrop title="Struggle Set">
         <main className="mx-auto max-w-xl px-4 py-16 text-center">
-          <img src={cub} alt="Piper Cub in flight" className="mx-auto mb-8 h-40 w-full rounded-2xl object-cover opacity-70" />
           <h1 className="font-display text-xl font-semibold uppercase tracking-[0.2em] text-white">
             Not enough data yet
           </h1>
-          <p className="mx-auto mt-3 max-w-sm text-silver-400">
+          <p className="mx-auto mt-3 max-w-sm text-silver-300">
             Take a couple of Quick Quizzes or an exam first — the Struggle Set needs some history to know
             which categories to target.
           </p>
@@ -50,7 +65,7 @@ export default function StruggleRunner() {
             Take a Quick Quiz
           </Link>
         </main>
-      </div>
+      </Backdrop>
     );
   }
 
@@ -92,15 +107,14 @@ export default function StruggleRunner() {
 
   if (finished) {
     return (
-      <div className="min-h-screen bg-panel-950">
-        <TopBar title="Struggle Set Results" />
+      <Backdrop title="Struggle Set Results">
         <main className="mx-auto max-w-xl px-4 py-14 text-center sm:py-20">
-          <div className="font-display text-sm uppercase tracking-[0.3em] text-silver-400">Score</div>
+          <div className="font-display text-sm uppercase tracking-[0.3em] text-silver-300">Score</div>
           <div className="mt-2 font-display text-6xl font-bold text-white">{pct}%</div>
-          <div className="mt-1 text-silver-400">
+          <div className="mt-1 text-silver-300">
             {correctCount} of {questions.length} correct
           </div>
-          <p className="mx-auto mt-6 max-w-md text-silver-300">{commentaryFor(pct)}</p>
+          <p className="mx-auto mt-6 max-w-md text-silver-200">{commentaryFor(pct)}</p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <button
@@ -112,19 +126,18 @@ export default function StruggleRunner() {
             </button>
             <Link
               to="/hub"
-              className="rounded-sm border border-panel-600 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-400"
+              className="rounded-sm border border-panel-400/60 px-6 py-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-silver-200 hover:border-panel-300"
             >
               Back to Hub
             </Link>
           </div>
         </main>
-      </div>
+      </Backdrop>
     );
   }
 
   return (
-    <div className="min-h-screen bg-panel-950">
-      <TopBar title="Struggle Set" />
+    <Backdrop title="Struggle Set">
       <main className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
         <div className="mb-6">
           <ProgressBar current={index + (revealed ? 1 : 0)} total={questions.length} color="var(--color-hud-amber)" />
@@ -149,6 +162,6 @@ export default function StruggleRunner() {
           </button>
         )}
       </main>
-    </div>
+    </Backdrop>
   );
 }

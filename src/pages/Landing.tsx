@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
-import taildraggerDawn from "../assets/photos/taildragger-dawn.webp";
+import staggerwingHero from "../assets/photos/staggerwing-hero.webp";
 import Logo from "../components/Logo";
 
 export default function Landing() {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-panel-950">
       <img
-        src={taildraggerDawn}
-        alt="Taildragger silhouetted on the taxiway at dawn"
+        src={staggerwingHero}
+        alt="Beechcraft Staggerwing biplane flying over green hills"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/80 via-panel-950/15 to-panel-950/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-panel-950/85 via-panel-950/25 to-panel-950/90" />
       <div className="absolute inset-0 hud-grid opacity-10" />
 
-      <div className="relative z-10 flex flex-col items-center px-6 pt-14 text-center sm:pt-20">
+      <div className="relative z-10 flex flex-col items-center px-6 pt-14 text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] sm:pt-20">
         <Logo size="lg" showTagline />
       </div>
 
