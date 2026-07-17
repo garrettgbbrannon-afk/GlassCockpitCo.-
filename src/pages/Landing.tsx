@@ -9,7 +9,7 @@ export default function Landing() {
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={staggerwingHero}
-          alt="Beechcraft Staggerwing biplane flying over green hills"
+          alt="Beechcraft Staggerwing biplane flying against golden sunset clouds"
           className="animate-ken-burns h-full w-full object-cover blur-[1.5px]"
         />
       </div>
