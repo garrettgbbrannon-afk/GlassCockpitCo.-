@@ -7,6 +7,10 @@ export interface Question {
   choices: [string, string, string];
   correct: 0 | 1 | 2;
   explanation: string;
+  /** Why the tempting wrong choice(s) are wrong — shown when the pilot misses the question. */
+  commonMistake?: string;
+  /** A short mnemonic or memory hook, shown when one plausibly exists for the concept. */
+  mnemonic?: string;
 }
 
 export interface AnsweredRecord {

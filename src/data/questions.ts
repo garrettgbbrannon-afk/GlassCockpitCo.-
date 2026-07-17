@@ -39,6 +39,8 @@ const regulations: Question[] = [
     choices: ["Airworthiness certificate", "Registration certificate", "Radio station license"],
     correct: 2,
     explanation: "A radio station license is only required for aircraft operating internationally, not domestically.",
+    commonMistake: "The airworthiness certificate and registration must always be aboard — it's easy to assume every official-sounding document is required, but the radio license is the one exception for domestic flight.",
+    mnemonic: "ARROW — Airworthiness certificate, Registration, Radio license (international only), Operating limitations, Weight & balance data.",
   },
   {
     id: "reg-5",
@@ -55,6 +57,8 @@ const regulations: Question[] = [
     choices: ["an odd thousand foot level plus 500 feet", "an even thousand foot level plus 500 feet", "any even thousand foot level"],
     correct: 1,
     explanation: "VFR cruising altitude rules assign even thousands plus 500 feet for magnetic courses 180-359 degrees.",
+    commonMistake: "Odd thousands plus 500 feet is for the other direction — magnetic courses 000-179 degrees (eastbound). It's easy to swap the two if you don't have a consistent way to remember which is which.",
+    mnemonic: "Odd East, Even West — headings 000-179° fly odd + 500, headings 180-359° fly even + 500.",
   },
   {
     id: "reg-7",
@@ -83,6 +87,7 @@ const regulations: Question[] = [
     ],
     correct: 1,
     explanation: "14 CFR 91.119 requires 1,000 feet above the highest obstacle within a 2,000-foot radius over congested areas.",
+    commonMistake: "500 feet is the minimum for other-than-congested areas, not congested ones — congested areas (cities, towns, gatherings of people) get the stricter 1,000-foot buffer.",
   },
   {
     id: "reg-10",
@@ -95,6 +100,7 @@ const regulations: Question[] = [
     ],
     correct: 0,
     explanation: "91.119(c) requires 500 feet of separation from persons, vessels, vehicles, or structures in other than congested areas.",
+    commonMistake: "1,000 feet is the congested-area rule, measured above the highest obstacle rather than from people or structures directly — don't mix the two altitude rules up.",
   },
   {
     id: "reg-11",
@@ -118,7 +124,9 @@ const regulations: Question[] = [
     prompt: "No person may act as a crewmember within 8 hours after consuming",
     choices: ["any caffeine", "any alcoholic beverage", "any over-the-counter medication"],
     correct: 1,
-    explanation: "14 CFR 91.17 prohibits acting as a crewmember within 8 hours of consuming alcohol (\"8 hours bottle to throttle\").",
+    explanation: "14 CFR 91.17 prohibits acting as a crewmember within 8 hours of consuming alcohol, and requires a BAC under 0.04.",
+    commonMistake: "Caffeine and most over-the-counter medications aren't regulated by this specific rule (though some medications carry their own no-fly guidance) — 91.17 is specifically about alcohol.",
+    mnemonic: "\"Bottle to throttle: 8 hours\" — and that's a minimum, not a target.",
   },
   {
     id: "reg-14",
@@ -184,6 +192,15 @@ const regulations: Question[] = [
     correct: 1,
     explanation: "61.51 allows logging PIC time as the sole manipulator of controls of an aircraft for which the pilot is rated.",
   },
+  {
+    id: "reg-21",
+    category: "regulations",
+    prompt: "What is the minimum visibility required for a pilot to accept a Land and Hold Short Operation (LAHSO) clearance?",
+    choices: ["1 statute mile", "3 statute miles", "3 nautical miles"],
+    correct: 1,
+    explanation: "LAHSO requires a ceiling of at least 1,000 feet and visibility of at least 3 statute miles. Visibility in clearances and on charts is always given in statute miles.",
+    commonMistake: "It's easy to reach for nautical miles since so much of aviation uses them, but visibility is one of the values that's always expressed in statute miles.",
+  },
 ];
 
 const weather: Question[] = [
@@ -202,6 +219,7 @@ const weather: Question[] = [
     choices: ["Stratus", "Cumulus", "Cumulonimbus"],
     correct: 0,
     explanation: "Stratiform clouds form in stable air with widespread, gentle lifting rather than vertical development.",
+    commonMistake: "Cumulus and cumulonimbus are the opposite — puffy, vertically-developed clouds that signal unstable air, showery precipitation, and turbulence.",
   },
   {
     id: "wx-3",
@@ -218,6 +236,7 @@ const weather: Question[] = [
     choices: ["faster; more violent, shorter-duration", "slower; milder, longer-duration", "faster; milder, longer-duration"],
     correct: 0,
     explanation: "Cold fronts move faster and are steeper, often producing brief but intense weather including thunderstorms.",
+    commonMistake: "It's tempting to assume 'warm' means gentler weather across the board, but warm fronts are actually the slow, shallow, stable one — steady rain over a long duration, not the fast/violent front.",
   },
   {
     id: "wx-5",
@@ -262,6 +281,7 @@ const weather: Question[] = [
     ],
     correct: 1,
     explanation: "Carb ice can form even in relatively mild temperatures (20-70°F) when humidity is high, due to the cooling effect of vaporizing fuel.",
+    commonMistake: "It's a common misconception that carb ice only happens in freezing weather — the sharp temperature drop from fuel vaporization means it can form well above freezing, especially at reduced power settings like a descent or glide.",
   },
   {
     id: "wx-10",
@@ -270,6 +290,7 @@ const weather: Question[] = [
     choices: ["improves", "decreases", "is unaffected"],
     correct: 1,
     explanation: "Higher density altitude means thinner air, reducing engine power, propeller efficiency, and lift, degrading performance.",
+    mnemonic: "\"High, hot, and humid\" — the three things that drive density altitude (and degraded performance) up.",
   },
   {
     id: "wx-11",
@@ -309,7 +330,9 @@ const weather: Question[] = [
     prompt: "When flying from an area of high pressure into an area of lower pressure without resetting the altimeter, true altitude is",
     choices: ["lower than indicated", "higher than indicated", "unaffected"],
     correct: 0,
-    explanation: "Flying from high to low pressure without adjusting the altimeter causes the aircraft to be lower than indicated (\"high to low, look out below\").",
+    explanation: "Flying from high to low pressure without adjusting the altimeter causes the true altitude to be lower than what's indicated, since the altimeter is still referencing the higher pressure setting.",
+    commonMistake: "It's easy to assume the altimeter would over-read in the opposite direction — but going into lower pressure without recalibrating always makes the airplane lower than the gauge shows, never higher.",
+    mnemonic: "\"From high to low, look out below\" — same idea applies for temperature (from warm to cold, look out below).",
   },
   {
     id: "wx-16",
@@ -437,6 +460,7 @@ const airspace: Question[] = [
     ],
     correct: 0,
     explanation: "Below 10,000 feet MSL in Class E, VFR requires 500 feet below, 1,000 feet above, and 2,000 feet horizontal from clouds, with 3 SM visibility.",
+    mnemonic: "\"5-10-20\" — 500 below, 1,000 above, 2,000 horizontal. This is the standard cloud clearance almost everywhere below 10,000 MSL.",
   },
   {
     id: "airsp-9",
@@ -445,6 +469,7 @@ const airspace: Question[] = [
     choices: ["Restricted Area", "Prohibited Area", "Military Operations Area"],
     correct: 0,
     explanation: "Restricted areas contain hazards such as artillery firing or guided missiles; Prohibited areas are barred for security/safety reasons regardless of hazard type.",
+    commonMistake: "Prohibited areas are barred for security reasons (like the White House or Camp David) — Restricted areas are about physical hazards to aircraft, and can sometimes be entered with authorization.",
   },
   {
     id: "airsp-10",
@@ -498,6 +523,15 @@ const airspace: Question[] = [
     correct: 1,
     explanation: "The ADS-B Out mandate covers Class A, B, and C airspace and the airspace above the ceiling of Class B/C areas up to 10,000 feet MSL, among other defined areas.",
   },
+  {
+    id: "airsp-15",
+    category: "airspace",
+    prompt: "A fuzzy magenta boundary around a non-towered airport on a sectional chart indicates",
+    choices: ["Class D airspace", "Class E airspace extending down to the surface", "Class G airspace"],
+    correct: 1,
+    explanation: "Fuzzy magenta marks Class E airspace that extends down to the surface. A fuzzy blue boundary instead marks Class E starting at 700 feet AGL.",
+    commonMistake: "Class D requires a control tower, which a non-towered airport by definition doesn't have — a non-towered field with controlled airspace down to the ground is Class E to the surface.",
+  },
 ];
 
 const performance: Question[] = [
@@ -540,6 +574,8 @@ const performance: Question[] = [
     choices: ["Vx, best angle of climb", "Vy, best rate of climb", "Va, maneuvering speed"],
     correct: 1,
     explanation: "Vy is the speed for maximum rate of climb (altitude gained per unit time); Vx maximizes altitude per unit of horizontal distance.",
+    commonMistake: "Vx sounds like it should be about speed since it comes first alphabetically or reads faster, but Vx is actually about distance (obstacle clearance), not time.",
+    mnemonic: "\"Y-axis is vertical\" — Vy gets you up fastest (rate, time-focused). \"X marks the obstacle\" — Vx clears it in the shortest distance.",
   },
   {
     id: "perf-6",
@@ -548,6 +584,8 @@ const performance: Question[] = [
     choices: ["Vx, best angle of climb", "Vy, best rate of climb", "Vfe, max flap extended speed"],
     correct: 0,
     explanation: "Vx is used to clear obstacles because it maximizes altitude gained per unit of horizontal distance traveled.",
+    commonMistake: "Vy is the faster, shallower climb that's about rate (time), not distance — it won't clear an obstacle as steeply as Vx will.",
+    mnemonic: "\"X marks the obstacle\" — steep angle, slow speed, distance-focused.",
   },
   {
     id: "perf-7",
@@ -604,10 +642,15 @@ const performance: Question[] = [
   {
     id: "perf-13",
     category: "performance",
-    prompt: "High humidity has what effect on engine and aircraft performance, compared to dry air at the same temperature and pressure?",
-    choices: ["Improves performance", "Degrades performance slightly", "No measurable effect"],
-    correct: 1,
-    explanation: "Water vapor displaces oxygen molecules in the air, slightly reducing air density and engine power output.",
+    prompt: "A short-field landing, compared to a soft-field landing, is characterized by",
+    choices: [
+      "a steeper approach with power to idle and a precise touchdown point, followed by maximum braking",
+      "a normal approach angle carrying power through the flare to cushion touchdown",
+      "the exact same technique regardless of runway surface or length",
+    ],
+    correct: 0,
+    explanation: "Short-field technique prioritizes a steep approach, power at idle, and a precise touchdown point followed by maximum braking for the shortest possible stop.",
+    commonMistake: "Carrying power through the flare and cushioning the touchdown is the soft-field technique (protecting the gear on rough terrain), not short-field — mixing up the two techniques is one of the most common test traps.",
   },
   {
     id: "perf-14",
@@ -655,6 +698,8 @@ const aerodynamics: Question[] = [
     ],
     correct: 0,
     explanation: "Angle of attack is the angle between the wing's chord line and the relative wind.",
+    commonMistake: "The angle between the chord line and the aircraft's longitudinal axis is angle of incidence, a fixed rigging angle — angle of attack is the one that changes constantly in flight relative to the relative wind.",
+    mnemonic: "\"Attack = Air\" (relative wind, changes constantly). \"Incidence = airplane\" (longitudinal axis, fixed).",
   },
   {
     id: "aero-4",
@@ -663,6 +708,7 @@ const aerodynamics: Question[] = [
     choices: ["P-factor and spiraling slipstream", "ground effect", "adverse yaw from ailerons"],
     correct: 0,
     explanation: "Left-turning tendencies (P-factor, spiraling slipstream, torque reaction, gyroscopic precession) are most pronounced at high power, low airspeed, high AOA.",
+    commonMistake: "Ground effect and adverse yaw are real aerodynamic effects, but they're not among the four classic left-turning tendencies — those are torque, P-factor, spiraling slipstream, and gyroscopic precession (mostly a tailwheel issue during the takeoff roll).",
   },
   {
     id: "aero-5",
@@ -767,6 +813,8 @@ const aerodynamics: Question[] = [
     ],
     correct: 0,
     explanation: "Standard spin recovery involves reducing power, applying opposite rudder to stop rotation, and relaxing back pressure to reduce angle of attack.",
+    commonMistake: "Adding power or raising the flaps first does nothing to stop the rotation and can make a spin worse — rudder to stop the yaw and forward elevator to break the stall are what actually recover the airplane.",
+    mnemonic: "PARE — Power (idle), Ailerons (neutral), Rudder (full opposite the spin), Elevator (forward, to break the stall).",
   },
   {
     id: "aero-14",
@@ -779,6 +827,8 @@ const aerodynamics: Question[] = [
     ],
     correct: 0,
     explanation: "Angle of incidence is a fixed rigging angle between the wing chord and the fuselage's longitudinal axis, unlike angle of attack, which varies in flight.",
+    commonMistake: "The chord line versus relative wind is angle of attack, which changes throughout a flight — angle of incidence is a fixed, built-in rigging angle that never changes once the airplane is built.",
+    mnemonic: "\"Incidence = airplane\" (longitudinal axis, fixed). \"Attack = Air\" (relative wind, dynamic).",
   },
 ];
 
@@ -841,7 +891,8 @@ const systems: Question[] = [
       "level and unaccelerated on any heading",
     ],
     correct: 0,
-    explanation: "Northerly turning error is most pronounced near north and south headings due to magnetic dip.",
+    explanation: "Northerly turning error is most pronounced near north and south headings due to magnetic dip: the compass lags when turning through north and leads when turning through south.",
+    commonMistake: "East/west headings are where the compass's acceleration/deceleration error (ANDS) shows up instead — that's a different error from the turning error tested here.",
   },
   {
     id: "sys-7",
@@ -849,7 +900,9 @@ const systems: Question[] = [
     prompt: "During acceleration on an easterly heading in the Northern Hemisphere, the magnetic compass will initially indicate a turn toward",
     choices: ["north", "south", "no change"],
     correct: 0,
-    explanation: "Acceleration error causes the compass to show a turn toward north when accelerating on an east or west heading (ANDS: Accelerate North, Decelerate South).",
+    explanation: "Acceleration error causes the compass to show a turn toward north when accelerating on an east or west heading.",
+    commonMistake: "This acceleration/deceleration error only shows up on east/west headings — on north/south headings the compass instead shows a lag or lead error during an actual turn, which is a different (and separately tested) error.",
+    mnemonic: "ANDS — Accelerate North, Decelerate South. Only applies on East/West headings.",
   },
   {
     id: "sys-8",
@@ -927,6 +980,19 @@ const systems: Question[] = [
     correct: 0,
     explanation: "Engine oil lubricates moving parts, carries away heat, helps seal piston rings, and cleans internal components.",
   },
+  {
+    id: "sys-15",
+    category: "systems",
+    prompt: "Detonation in a piston aircraft engine occurs when",
+    choices: [
+      "the unburned fuel/air charge explodes spontaneously instead of burning smoothly",
+      "the fuel/air mixture ignites too early because of a hot spot, before the spark plug fires",
+      "the magnetos lose timing synchronization with each other",
+    ],
+    correct: 0,
+    explanation: "Detonation is an uncontrolled explosion of the remaining unburned charge after normal ignition has already started, rather than the smooth, controlled burn the engine is designed for.",
+    commonMistake: "Igniting early from a hot spot before the spark plug fires is preignition, a related but distinct problem — both are abnormal combustion, but detonation is the explosive one, preignition is the early-timing one.",
+  },
 ];
 
 const navigation: Question[] = [
@@ -989,6 +1055,8 @@ const navigation: Question[] = [
     choices: ["deviation", "variation", "drift angle"],
     correct: 1,
     explanation: "Variation is the angular difference between true north and magnetic north at a given location.",
+    commonMistake: "Deviation is a different, aircraft-specific error caused by the airplane's own magnetic fields — variation is a purely geographic difference that's the same for every aircraft at that location.",
+    mnemonic: "\"East is least, west is best\" — east variation subtracts from true course, west variation adds.",
   },
   {
     id: "nav-7",
@@ -1001,6 +1069,7 @@ const navigation: Question[] = [
     ],
     correct: 0,
     explanation: "Deviation results from the aircraft's own magnetic fields (electronics, metal structure) affecting the compass, and is corrected using a compass correction card.",
+    commonMistake: "The true-vs-magnetic-north difference is variation, a geographic value shown on sectional charts — deviation is specific to each individual airplane and is only found on that aircraft's compass correction card.",
   },
   {
     id: "nav-8",
@@ -1070,16 +1139,40 @@ const navigation: Question[] = [
     correct: 1,
     explanation: "The reciprocal is found by adding or subtracting 180°: 090° + 180° = 270°.",
   },
+  {
+    id: "nav-15",
+    category: "navigation",
+    prompt: "AGL and MSL both describe altitude, but AGL specifically refers to",
+    choices: [
+      "height above the terrain directly below the aircraft",
+      "height above sea level, which is what the altimeter reads",
+      "height above the highest obstacle within 2,000 feet",
+    ],
+    correct: 0,
+    explanation: "AGL (Above Ground Level) is height above whatever terrain is directly below the aircraft, so it shrinks and grows as terrain rises and falls even at a constant MSL altitude.",
+    commonMistake: "Height above sea level is MSL, the altitude the altimeter actually displays — pilots read MSL in the cockpit but often need to convert to AGL to judge obstacle and terrain clearance.",
+    mnemonic: "AGL = Above Ground (changes with terrain). MSL = above Sea Level (what the altimeter reads).",
+  },
+  {
+    id: "nav-16",
+    category: "navigation",
+    prompt: "At the beginning of a turn from a northerly heading, the magnetic compass will",
+    choices: ["show the correct heading throughout the turn", "lead the turn", "show a turn in the opposite direction"],
+    correct: 2,
+    explanation: "Northerly turning error causes the compass to lag on turns away from north, initially indicating a turn in the opposite direction before catching up.",
+    commonMistake: "Leading the turn is what happens on turns from a southerly heading instead — north and south produce opposite turning errors.",
+  },
 ];
 
 const charts: Question[] = [
   {
     id: "chart-1",
     category: "charts",
-    prompt: "On a sectional chart, a magenta shaded boundary typically depicts",
-    choices: ["Class B airspace", "Class C or D airspace", "Class E airspace with a floor other than 1,200 feet AGL"],
-    correct: 2,
-    explanation: "Magenta shading depicts Class E airspace with a floor other than the standard 1,200 feet AGL, or the boundary of Class C airspace; solid blue depicts Class B, dashed blue depicts Class D.",
+    prompt: "On a sectional chart, a fuzzy (faded) magenta boundary typically depicts",
+    choices: ["Class E airspace that extends down to the surface", "Class B airspace", "a Restricted Area"],
+    correct: 0,
+    explanation: "A fuzzy magenta boundary marks Class E airspace with a floor at the surface. A fuzzy blue boundary marks Class E starting at 700 feet AGL instead of the default 1,200 feet.",
+    commonMistake: "Class B is always solid thick blue, never magenta — magenta on a sectional is specifically about where Class E's floor drops down to.",
   },
   {
     id: "chart-2",
@@ -1088,6 +1181,7 @@ const charts: Question[] = [
     choices: ["Class B airspace", "Class D airspace", "a Restricted Area"],
     correct: 0,
     explanation: "Solid blue lines depict Class B airspace boundaries on sectional charts.",
+    commonMistake: "Class D uses a dashed (segmented) blue circle, not a solid line — the solid-versus-dashed distinction is exactly what separates Class B from Class D on the chart.",
   },
   {
     id: "chart-3",
@@ -1096,6 +1190,7 @@ const charts: Question[] = [
     choices: ["Class D airspace", "Class C airspace", "a private airport"],
     correct: 0,
     explanation: "A dashed blue circle depicts Class D airspace surrounding a tower-controlled airport.",
+    commonMistake: "Class C uses solid magenta lines in a two-tier pattern, not a dashed blue circle — the dashing and the color are both clues to which class you're looking at.",
   },
   {
     id: "chart-4",
@@ -1128,10 +1223,12 @@ const charts: Question[] = [
   {
     id: "chart-7",
     category: "charts",
-    prompt: "An airport symbol on a sectional chart with small flag-like extensions indicates the airport has",
-    choices: ["fuel available", "a lighted beacon", "a control tower only"],
-    correct: 0,
-    explanation: "Small tick marks or flags on the airport symbol on a sectional chart indicate services such as fuel availability.",
+    prompt: "A runway numbered 27 is oriented on an approximate magnetic heading of",
+    choices: ["027°", "270°", "090°"],
+    correct: 1,
+    explanation: "Runway numbers are the magnetic heading rounded to the nearest 10 and divided by 10, so runway 27 lines up with approximately 270° magnetic — never true heading.",
+    commonMistake: "Runway 9 would be 090°, not 27 — it's easy to transpose which runway number goes with which heading if you don't drop the trailing zero consistently.",
+    mnemonic: "Runway number × 10 = approximate magnetic heading. Runway 9 = 090°, Runway 27 = 270°, Runway 36 = 360°.",
   },
   {
     id: "chart-8",
@@ -1172,6 +1269,19 @@ const charts: Question[] = [
     ],
     correct: 0,
     explanation: "Obstruction data typically shows AGL height above the MSL elevation, separated by a slash, e.g. 499/1201.",
+  },
+  {
+    id: "chart-12",
+    category: "charts",
+    prompt: "When flying a rectangular course with a wind blowing across the course, the corners where the aircraft must turn more than 90 degrees are",
+    choices: [
+      "the upwind-to-crosswind corners",
+      "the crosswind-to-downwind (and downwind-to-crosswind) corners",
+      "all four corners equally"
+    ],
+    correct: 1,
+    explanation: "The more-than-90° corners are the ones transitioning between a crosswind leg and a downwind leg — the nose has to swing past the geometric 90° point to remove or add the crab angle needed to hold the ground track.",
+    commonMistake: "It seems like every corner should need the same correction, but the correction angle needed depends on how much the wind is helping or fighting the turn on each specific leg.",
   },
 ];
 
@@ -1288,6 +1398,61 @@ const groundOps: Question[] = [
     correct: 0,
     explanation: "A closed runway per NOTAM must not be used for takeoff or landing operations.",
   },
+  {
+    id: "gnd-12",
+    category: "groundOps",
+    prompt: "Inbound to an airport with no tower, FSS, or UNICOM, a pilot should self-announce on the MULTICOM frequency of",
+    choices: ["122.7", "122.9", "123.0"],
+    correct: 1,
+    explanation: "122.9 MHz is the designated MULTICOM frequency for self-announcing position and intentions at airports with no ground-based radio station.",
+    commonMistake: "122.7 and 123.0 are common UNICOM frequencies at airports that do have a UNICOM station — MULTICOM (122.9) is specifically for fields with none.",
+  },
+  {
+    id: "gnd-13",
+    category: "groundOps",
+    prompt: "On a segmented circle, the L-shaped extensions attached to the landing strip indicators show",
+    choices: [
+      "runway lighting availability",
+      "the traffic pattern direction (left or right) for each runway",
+      "wind direction"
+    ],
+    correct: 1,
+    explanation: "The L-shapes trace the base and final legs of the pattern — the direction they bend shows whether the pattern is left- or right-hand for that runway.",
+    commonMistake: "Wind direction is shown separately, by the tetrahedron or wind sock at the center of the segmented circle, not by the L-shaped extensions.",
+  },
+  {
+    id: "gnd-14",
+    category: "groundOps",
+    prompt: "On a two-bar Visual Approach Slope Indicator (VASI), seeing red over white tells a pilot they are",
+    choices: ["above the glide path", "on the correct glide path", "below the glide path"],
+    correct: 1,
+    explanation: "Red over white means the aircraft is on the proper glide path — white (upper bar) over red (lower bar) is what a pilot's eye sees when correctly positioned.",
+    commonMistake: "White over white means too high, and red over red means too low — the on-path indication is specifically one white bar over one red bar.",
+    mnemonic: "Red over white, you're all right. Red over red, you're dead (too low). White over white, you're too high (you'll fly all night).",
+  },
+  {
+    id: "gnd-15",
+    category: "groundOps",
+    prompt: "On a four-light Precision Approach Path Indicator (PAPI), seeing two white lights and two red lights indicates the aircraft is",
+    choices: ["on the correct glide path", "well above the glide path", "well below the glide path"],
+    correct: 0,
+    explanation: "PAPI uses four lights in a single row. Two white (nearest the runway) and two red (farthest) means the aircraft is on the correct glide path; more white means high, more red means low.",
+    commonMistake: "All four white indicates significantly high, and all four red indicates significantly low — the balanced two-and-two split is the on-path signal.",
+  },
+  {
+    id: "gnd-16",
+    category: "groundOps",
+    prompt: "When taxiing a nosewheel airplane in a strong quartering headwind, the aileron control should generally be positioned",
+    choices: [
+      "with the aileron up on the side the wind is coming from (dive away from the wind)",
+      "with the aileron up on the downwind side (climb into the wind)",
+      "neutral, regardless of wind direction"
+    ],
+    correct: 0,
+    explanation: "In a quartering headwind, turn the yoke/stick into the wind so the aileron on the upwind side is raised, spoiling lift on that wing and preventing the wind from getting under it.",
+    commonMistake: "Climbing into a headwind and diving away from a tailwind is the correct rule, but it flips for a quartering tailwind — pilots often apply the headwind rule to all wind conditions.",
+    mnemonic: "Climb into a headwind, dive away from a tailwind.",
+  },
 ];
 
 const communications: Question[] = [
@@ -1297,7 +1462,9 @@ const communications: Question[] = [
     prompt: "Squawking transponder code 7700 indicates",
     choices: ["an emergency", "loss of radio communication", "normal VFR flight"],
     correct: 0,
-    explanation: "7700 is the universal transponder code for declaring an emergency.",
+    explanation: "7700 is the universal transponder code for declaring a general emergency.",
+    commonMistake: "It's easy to mix up 7700/7600/7500 under pressure — 7700 is emergency, 7600 is lost comms, and 7500 is specifically hijacking/unlawful interference.",
+    mnemonic: "7700 = 7 for 'seventy-seven trouble' (general emergency); 7600 = radio's out (six-hundred, silent); 7500 = hijack, the most serious, lowest hundreds digit.",
   },
   {
     id: "comm-2",
@@ -1306,6 +1473,7 @@ const communications: Question[] = [
     choices: ["a hijacking", "loss of two-way radio communication", "an emergency"],
     correct: 1,
     explanation: "7600 signals loss of two-way radio communication (NORDO).",
+    commonMistake: "7500 is reserved specifically for hijacking/unlawful interference, not radio failure — confusing the two on a checkride is a common mistake.",
   },
   {
     id: "comm-3",
@@ -1314,6 +1482,7 @@ const communications: Question[] = [
     choices: ["unlawful interference (hijacking)", "VFR flight following", "radio failure"],
     correct: 0,
     explanation: "7500 is the code specifically reserved to signal unlawful interference or hijacking.",
+    commonMistake: "Pilots should avoid dialing through 7500 accidentally while changing squawk codes, since ATC treats it as a serious, unambiguous signal with no room for 'oops.'",
   },
   {
     id: "comm-4",
@@ -1355,6 +1524,37 @@ const communications: Question[] = [
     correct: 0,
     explanation: "In VFR conditions with lost comms, a pilot should continue under VFR and land as soon as practicable, monitoring for light signals if at a towered field.",
   },
+  {
+    id: "comm-8",
+    category: "communications",
+    prompt: "During night flight you observe a steady white light and a flashing red light ahead at the same altitude. The other aircraft is",
+    choices: ["crossing to the right", "flying away from you", "crossing to the left"],
+    correct: 1,
+    explanation: "Steady white is the tail (rearward-facing) position light. Combined with the red anti-collision beacon and no colored wingtip position light in view, you're looking at the tail of the aircraft — it is flying away from you.",
+    commonMistake: "A crossing aircraft would show you one of its colored wingtip lights (red on the left wingtip, green on the right) — seeing only steady white plus the red beacon means you're behind it, not crossing its path.",
+  },
+  {
+    id: "comm-9",
+    category: "communications",
+    prompt: "The radio call \"MAYDAY, MAYDAY, MAYDAY\" is used to declare",
+    choices: [
+      "distress, a life-threatening emergency requiring immediate assistance",
+      "urgency, a concerning but not immediately life-threatening situation",
+      "a routine frequency change"
+    ],
+    correct: 0,
+    explanation: "MAYDAY (said three times) declares distress — a life-threatening emergency. PAN-PAN (also said three times) declares urgency, a situation that's concerning but not immediately life-threatening.",
+    commonMistake: "PAN-PAN is the correct call for a serious-but-not-dire situation, like a rough-running engine you're still controlling — reserving MAYDAY for true life-threatening distress helps ATC triage correctly.",
+  },
+  {
+    id: "comm-10",
+    category: "communications",
+    prompt: "ATC advises traffic at your \"9 o'clock.\" You should look",
+    choices: ["directly ahead", "directly to your left", "directly behind"],
+    correct: 1,
+    explanation: "Clock position calls treat the nose of the aircraft as 12 o'clock: 3 o'clock is directly right, 6 o'clock is directly behind, and 9 o'clock is directly left.",
+    commonMistake: "It's easy to picture a clock face from an outside/map view instead of from the pilot's own seat looking forward — the clock is always centered on your nose, not on north.",
+  },
 ];
 
 const emergency: Question[] = [
@@ -1369,6 +1569,8 @@ const emergency: Question[] = [
     ],
     correct: 0,
     explanation: "The priority sequence is aviate, navigate, communicate — establishing best glide speed and aircraft control comes first.",
+    commonMistake: "Transmitting a distress call feels urgent, but flying the airplane and finding a landing spot always come before talking on the radio — a well-flown forced landing with no radio call beats a radio call with a botched landing.",
+    mnemonic: "Aviate, Navigate, Communicate — in that order.",
   },
   {
     id: "emer-2",
@@ -1406,6 +1608,19 @@ const emergency: Question[] = [
     correct: 0,
     explanation: "Standard procedure includes cutting off the fuel supply to starve the fire, using available extinguishing methods, and landing as soon as possible.",
   },
+  {
+    id: "emer-5",
+    category: "emergency",
+    prompt: "Departing behind a larger aircraft from the same runway, a pilot should generally",
+    choices: [
+      "rotate prior to the larger aircraft's rotation point and climb above its flight path",
+      "rotate at the same point and stay at the same altitude",
+      "wait 3 minutes before beginning the takeoff roll"
+    ],
+    correct: 0,
+    explanation: "When departing behind a larger aircraft, rotate before its rotation point and stay above its climb path to stay clear of the wingtip vortices it sheds once airborne.",
+    commonMistake: "The 3-minute wait applies to an intersection departure behind a larger aircraft, not to a full-length departure from the same point — the rotate-early-and-stay-above technique is the active-avoidance strategy when you're taking off from the same spot.",
+  },
 ];
 
 const humanFactors: Question[] = [
@@ -1419,7 +1634,8 @@ const humanFactors: Question[] = [
       "dehydration only"
     ],
     correct: 0,
-    explanation: "Hypoxia results from an inadequate supply of oxygen to body tissues, often due to altitude.",
+    explanation: "Hypoxia results from an inadequate supply of oxygen to body tissues, often due to altitude. Early symptoms include euphoria, poor judgment, tingling, and blue lips or fingertips; the remedy is to descend and use supplemental oxygen if available.",
+    commonMistake: "Hypoxia and hyperventilation cause nearly identical symptoms (dizziness, tingling, impaired judgment), which is exactly why they're easy to confuse in flight — altitude and oxygen availability are the key clue pointing to hypoxia.",
   },
   {
     id: "hf-2",
@@ -1431,7 +1647,8 @@ const humanFactors: Question[] = [
       "carbon monoxide poisoning"
     ],
     correct: 0,
-    explanation: "Hyperventilation results from abnormally rapid or deep breathing, reducing carbon dioxide levels in the blood, often triggered by stress.",
+    explanation: "Hyperventilation results from abnormally rapid or deep breathing, reducing carbon dioxide levels in the blood, often triggered by stress. The fix is to consciously slow the breathing rate, talking aloud or breathing into a bag if needed.",
+    commonMistake: "Because hyperventilation mimics hypoxia so closely, treat it as hypoxia first if there's any doubt at altitude — descending and going on oxygen costs little, while misjudging real hypoxia as 'just anxiety' can be dangerous.",
   },
   {
     id: "hf-3",
@@ -1443,7 +1660,9 @@ const humanFactors: Question[] = [
       "flying with an autopilot engaged"
     ],
     correct: 0,
-    explanation: "Loss of outside visual reference, as in IMC or dark night conditions, is a primary trigger for spatial disorientation.",
+    explanation: "Loss of outside visual reference, as in IMC or dark night conditions, is a primary trigger for spatial disorientation, because the inner ear's vestibular system becomes unreliable without a visual horizon.",
+    commonMistake: "Bodily sensations feel completely convincing during disorientation, which is exactly the danger — a private pilot who inadvertently enters IMC must trust the flight instruments over what their body is telling them.",
+    mnemonic: "Trust your instruments, not your inner ear.",
   },
   {
     id: "hf-4",

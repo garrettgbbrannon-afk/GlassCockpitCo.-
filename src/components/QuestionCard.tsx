@@ -96,11 +96,31 @@ export default function QuestionCard({
       </div>
 
       {revealed && (
-        <div className="mt-5 rounded-xl border border-panel-700 bg-panel-800/40 p-4">
-          <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-silver-300">
-            Explanation
+        <div className="mt-5 flex flex-col gap-3">
+          {selectedIndex != null && selectedIndex !== question.correct && question.commonMistake && (
+            <div className="rounded-xl border border-hud-red/30 bg-hud-red/5 p-4">
+              <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-hud-red">
+                Why Not That
+              </div>
+              <p className="text-sm leading-relaxed text-silver-300">{question.commonMistake}</p>
+            </div>
+          )}
+
+          <div className="rounded-xl border border-panel-700 bg-panel-800/40 p-4">
+            <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-hud-green">
+              Why This Is Correct
+            </div>
+            <p className="text-sm leading-relaxed text-silver-300">{question.explanation}</p>
           </div>
-          <p className="text-sm leading-relaxed text-silver-300">{question.explanation}</p>
+
+          {question.mnemonic && (
+            <div className="rounded-xl border border-hud-amber/30 bg-hud-amber/5 p-4">
+              <div className="mb-1 font-display text-xs font-semibold uppercase tracking-[0.2em] text-hud-amber">
+                Memory Hook
+              </div>
+              <p className="text-sm leading-relaxed text-silver-300">{question.mnemonic}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
