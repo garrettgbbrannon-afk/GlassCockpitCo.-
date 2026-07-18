@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import TopBar from "../../components/TopBar";
 import CategoryBar from "../../components/CategoryBar";
+import QuestionCard from "../../components/QuestionCard";
 import { CATEGORIES, type CategoryId } from "../../data/categories";
 import { formatClock } from "../../lib/quizEngine";
 import type { Question } from "../../lib/types";
@@ -36,8 +37,11 @@ export default function Debrief() {
     });
 
     const flagged = questions.filter((_, i) => state.flags[i]);
+    const missed = questions
+      .map((q, i) => ({ question: q, answer: answers[i] }))
+      .filter(({ question, answer }) => answer !== question.correct);
 
-    return { score, total: questions.length, pct, breakdown, flagged };
+    return { score, total: questions.length, pct, breakdown, flagged, missed };
   }, [state]);
 
   if (!state || !summary) {
@@ -99,6 +103,27 @@ export default function Debrief() {
                 </li>
               ))}
             </ul>
+          )}
+        </section>
+
+        <section className="mt-12">
+          <h2 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.25em] text-silver-500">
+            Review Misses ({summary.missed.length})
+          </h2>
+          {summary.missed.length === 0 ? (
+            <p className="text-sm text-silver-500">You didn't miss any questions. Clean sweep.</p>
+          ) : (
+            <div className="flex flex-col gap-4">
+              {summary.missed.map(({ question, answer }) => (
+                <QuestionCard
+                  key={question.id}
+                  question={question}
+                  selectedIndex={answer}
+                  onSelect={() => {}}
+                  revealed
+                />
+              ))}
+            </div>
           )}
         </section>
 

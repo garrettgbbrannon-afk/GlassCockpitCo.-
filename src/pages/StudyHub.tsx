@@ -47,7 +47,16 @@ const CARDS: HubCard[] = [
 export default function StudyHub() {
   return (
     <div className="min-h-screen bg-panel-950">
-      <TopBar />
+      <TopBar
+        right={
+          <Link
+            to="/progress"
+            className="rounded-full border border-panel-600 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-silver-300 hover:border-panel-400 hover:text-white"
+          >
+            Progress
+          </Link>
+        }
+      />
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
         <div className="mb-12 text-center">
           <h1 className="font-display text-2xl font-semibold uppercase tracking-[0.25em] text-white sm:text-3xl">

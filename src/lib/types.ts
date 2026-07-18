@@ -31,3 +31,13 @@ export interface QuizAttempt {
   categoryBreakdown: Partial<Record<CategoryId, { correct: number; total: number }>>;
   flaggedQuestionIds: string[];
 }
+
+export type CardRating = "again" | "hard" | "good" | "easy";
+
+/** Per-question spaced-repetition state (SM-2-lite). */
+export interface SRSCard {
+  intervalDays: number;
+  ease: number;
+  dueAt: number;
+  reps: number;
+}

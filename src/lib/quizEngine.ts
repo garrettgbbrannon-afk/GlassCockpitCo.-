@@ -1,7 +1,7 @@
 import { CATEGORIES, type CategoryId } from "../data/categories";
 import { QUESTIONS } from "../data/questions";
 import type { DeckId, Question } from "./types";
-import { getWeakestCategories, getWeakQuestionIds } from "./storage";
+import { getWeakestCategories, getWeakQuestionIds, sortByDue } from "./storage";
 
 export function shuffle<T>(items: T[]): T[] {
   const arr = [...items];
@@ -81,14 +81,22 @@ export function buildStruggleSet(count = STRUGGLE_SET_SIZE): Question[] {
   return shuffle(selected);
 }
 
+/** Orders a deck so cards due for spaced-repetition review come first, then unseen cards, then not-yet-due cards. */
+function bySpacedRepetition(questions: Question[]): Question[] {
+  const byId = new Map(questions.map((q) => [q.id, q]));
+  const ordered = sortByDue(questions.map((q) => q.id));
+  return ordered.map((id) => byId.get(id)).filter((q): q is Question => q != null);
+}
+
 export function buildFlashcardDeck(deck: DeckId): Question[] {
-  if (deck === "all") return shuffle(QUESTIONS);
+  if (deck === "all") return bySpacedRepetition(shuffle(QUESTIONS));
   if (deck === "weak") {
     const weakIds = getWeakQuestionIds(200);
     const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
-    return weakIds.map((id) => byId.get(id)).filter((q): q is Question => q != null);
+    const questions = weakIds.map((id) => byId.get(id)).filter((q): q is Question => q != null);
+    return bySpacedRepetition(questions);
   }
-  return shuffle(questionsByCategory(deck));
+  return bySpacedRepetition(shuffle(questionsByCategory(deck)));
 }
 
 export function formatClock(totalSeconds: number): string {

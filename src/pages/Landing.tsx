@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import staggerwingHero from "../assets/photos/staggerwing-hero.webp";
 import gcMark from "../assets/photos/gc-mark.webp";
+import { useAuth } from "../lib/authContext";
 
 export default function Landing() {
+  const { user, cloudSyncConfigured } = useAuth();
+  const signedIn = cloudSyncConfigured && user;
+
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-panel-950">
       {/* Background photo — slow Ken Burns drift, slightly blurred so type stays the focus */}
@@ -43,10 +47,10 @@ export default function Landing() {
           <span className="font-sans text-sm font-medium tracking-wide text-white">Glass Cockpit</span>
         </div>
         <Link
-          to="/hub"
+          to={signedIn ? "/hub" : "/login"}
           className="rounded-full bg-white/95 px-5 py-2 text-xs font-medium tracking-wide text-panel-950 transition-all hover:-translate-y-px hover:bg-white hover:shadow-[0_0_24px_rgba(255,255,255,0.25)]"
         >
-          Get Started
+          {signedIn ? (user?.displayName?.split(" ")[0] ?? "Study Hub") : "Log In / Sign Up"}
         </Link>
       </nav>
 

@@ -22,6 +22,7 @@ export default function QuizRunner() {
   const category = (location.state as { category?: CategoryId | "all" } | null)?.category ?? "all";
 
   const [questions] = useState(() => buildQuickQuiz(category, 10));
+  const [answers, setAnswers] = useState<(number | null)[]>(() => Array(questions.length).fill(null));
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -36,10 +37,23 @@ export default function QuizRunner() {
     [correctCount, questions.length],
   );
 
+  const missed = useMemo(
+    () =>
+      questions
+        .map((q, i) => ({ question: q, answer: answers[i] }))
+        .filter(({ question, answer }) => answer !== question.correct),
+    [questions, answers],
+  );
+
   function handleSelect(choiceIndex: number) {
     if (revealed) return;
     setSelected(choiceIndex);
     setRevealed(true);
+    setAnswers((prev) => {
+      const next = [...prev];
+      next[index] = choiceIndex;
+      return next;
+    });
     const isCorrect = choiceIndex === current.correct;
     if (isCorrect) setCorrectCount((c) => c + 1);
     recordAnswer({
@@ -118,6 +132,25 @@ export default function QuizRunner() {
               Back to Hub
             </Link>
           </div>
+
+          {missed.length > 0 && (
+            <section className="mt-14 text-left">
+              <h2 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.25em] text-silver-500">
+                Review Misses ({missed.length})
+              </h2>
+              <div className="flex flex-col gap-4">
+                {missed.map(({ question, answer }) => (
+                  <QuestionCard
+                    key={question.id}
+                    question={question}
+                    selectedIndex={answer}
+                    onSelect={() => {}}
+                    revealed
+                  />
+                ))}
+              </div>
+            </section>
+          )}
         </main>
       </div>
     );
