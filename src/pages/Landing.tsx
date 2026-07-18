@@ -88,8 +88,20 @@ export default function Landing() {
         </div>
       </div>
 
-      <div className="relative z-10 pb-8 text-center font-mono text-[11px] uppercase tracking-[0.3em] text-silver-500">
-        Train. Fly. Elevate.
+      <div className="relative z-10 pb-8 text-center">
+        <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-silver-500">
+          Train. Fly. Elevate.
+        </div>
+        <p className="mx-auto mt-3 max-w-sm px-6 text-[11px] leading-relaxed text-silver-600">
+          Not affiliated with or endorsed by the FAA.{" "}
+          <Link to="/terms" className="underline hover:text-silver-400">
+            Terms
+          </Link>{" "}
+          ·{" "}
+          <Link to="/privacy" className="underline hover:text-silver-400">
+            Privacy
+          </Link>
+        </p>
       </div>
     </div>
   );

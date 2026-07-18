@@ -4,6 +4,8 @@ import Landing from "./pages/Landing";
 import StudyHub from "./pages/StudyHub";
 import Progress from "./pages/Progress";
 import Login from "./pages/Login";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 import ExamSetup from "./pages/exam/ExamSetup";
 import ExamRunner from "./pages/exam/ExamRunner";
 import Debrief from "./pages/exam/Debrief";
@@ -22,6 +24,8 @@ function App() {
           <Route path="/hub" element={<StudyHub />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
 
           <Route path="/exam" element={<ExamSetup />} />
           <Route path="/exam/run" element={<ExamRunner />} />

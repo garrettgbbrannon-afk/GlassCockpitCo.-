@@ -90,6 +90,22 @@ export default function StudyHub() {
             </Link>
           ))}
         </div>
+
+        <div className="mt-12 border-t border-panel-800 pt-6 text-center">
+          <p className="mx-auto max-w-md text-xs leading-relaxed text-silver-500">
+            Question content cross-referenced against the FAA's Private Pilot Airman Certification Standards
+            (FAA-S-ACS-6C). Glass Cockpit Co. is not affiliated with or endorsed by the FAA.
+          </p>
+          <p className="mt-3 text-xs text-silver-600">
+            <Link to="/terms" className="underline hover:text-silver-300">
+              Terms
+            </Link>{" "}
+            ·{" "}
+            <Link to="/privacy" className="underline hover:text-silver-300">
+              Privacy
+            </Link>
+          </p>
+        </div>
       </main>
     </div>
   );
