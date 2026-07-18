@@ -139,8 +139,8 @@ export default function Terms() {
               12. Governing Law
             </h2>
             <p>
-              These Terms are governed by the laws of the state in which Glass Cockpit Co. operates, without
-              regard to conflict-of-law principles.
+              These Terms are governed by the laws of the State of Arkansas, without regard to conflict-of-law
+              principles.
             </p>
           </section>
 
