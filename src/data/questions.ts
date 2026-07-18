@@ -185,6 +185,19 @@ const regulations: Question[] = [
     explanation: "LAHSO requires a ceiling of at least 1,000 feet and visibility of at least 3 statute miles. Visibility in clearances and on charts is always given in statute miles.",
     commonMistake: "It's easy to reach for nautical miles since so much of aviation uses them, but visibility is one of the values that's always expressed in statute miles.",
   },
+  {
+    id: "reg-22",
+    category: "regulations",
+    prompt: "Under NTSB Part 830, an in-flight fire or a flight control system malfunction generally requires",
+    choices: [
+      "no report unless the aircraft is substantially damaged",
+      "immediate notification to the nearest NTSB office",
+      "only a logbook entry at the pilot's next convenience"
+    ],
+    correct: 1,
+    explanation: "NTSB Part 830 requires immediate notification for specific serious events — including in-flight fires, flight control malfunctions, and several others — regardless of whether damage or injury actually results.",
+    commonMistake: "Substantial damage is the trigger for reporting an 'accident,' but Part 830 also lists specific serious 'incidents' (in-flight fire, flight control malfunction, crew incapacitation, etc.) that require immediate notification even with no damage at all.",
+  },
 ];
 
 const weather: Question[] = [
@@ -885,6 +898,19 @@ const systems: Question[] = [
     explanation: "Detonation is an uncontrolled explosion of the remaining unburned charge after normal ignition has already started, rather than the smooth, controlled burn the engine is designed for.",
     commonMistake: "Igniting early from a hot spot before the spark plug fires is preignition, a related but distinct problem — both are abnormal combustion, but detonation is the explosive one, preignition is the early-timing one.",
   },
+  {
+    id: "sys-16",
+    category: "systems",
+    prompt: "If the pitot tube becomes completely blocked but its drain hole remains clear, the airspeed indicator will",
+    choices: [
+      "read zero regardless of actual airspeed",
+      "act like an altimeter, rising with altitude gain and falling with altitude loss",
+      "continue reading normally with no noticeable error"
+    ],
+    correct: 1,
+    explanation: "With the pitot tube blocked but the drain hole open, trapped pressure can't build up with increasing speed, but ambient static pressure changes still vent through the drain hole — so the airspeed indicator behaves like a second altimeter, rising in a climb and falling in a descent instead of reflecting actual airspeed.",
+    commonMistake: "Reading zero is what happens if both the pitot tube and its drain hole are blocked, cutting off ram air pressure entirely — a fully blocked drain hole is a different failure mode from a blocked tube with an open drain.",
+  },
 ];
 
 const navigation: Question[] = [
@@ -1515,6 +1541,29 @@ const humanFactors: Question[] = [
     ],
     correct: 0,
     explanation: "PAVE is a risk-assessment mnemonic covering Pilot, Aircraft, enVironment, and External pressures.",
+  },
+  {
+    id: "hf-8",
+    category: "humanFactors",
+    prompt: "After scuba diving that required no decompression stops, a pilot should wait at least how long before flying to cabin altitudes up to 8,000 feet?",
+    choices: ["4 hours", "12 hours", "24 hours"],
+    correct: 1,
+    explanation: "For dives not requiring a controlled ascent (no decompression stops), the recommended wait before flying up to 8,000 feet cabin altitude is at least 12 hours; dives that did require decompression stops call for at least 24 hours.",
+    commonMistake: "24 hours is the more conservative wait time, but it specifically applies to dives that required decompression stops — mixing up the two dive types is an easy way to miss this question.",
+    mnemonic: "No-stop dive: 12 hours. Decompression-stop dive: 24 hours.",
+  },
+  {
+    id: "hf-9",
+    category: "humanFactors",
+    prompt: "A pilot with a head cold who experiences a painful inability to clear their ears during a descent is most likely dealing with",
+    choices: [
+      "hyperventilation",
+      "a blocked eustachian tube preventing middle ear pressure equalization",
+      "carbon monoxide poisoning"
+    ],
+    correct: 1,
+    explanation: "Congestion from a cold can block the eustachian tube, preventing middle ear pressure from equalizing with the changing cabin pressure during descent, causing pain and sometimes temporary hearing loss — this is why pilots and passengers with colds or sinus congestion are advised not to fly.",
+    commonMistake: "This is a mechanical pressure-equalization problem in the ear and sinuses, not a breathing or oxygen issue — a Valsalva maneuver (or simply climbing back up and descending more slowly) is the usual remedy, not the treatments used for hypoxia or hyperventilation.",
   },
 ];
 
